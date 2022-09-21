@@ -1,0 +1,126 @@
+{
+  "root": true,
+  "ignorePatterns": ["node_modules/**/*", "dist/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "projects/sd/tsconfig.app.json",
+          "projects/sd/tsconfig.spec.json",
+          "projects/sd/e2e/tsconfig.json",
+          "lib/tsconfig.lib.json",
+          "lib/tsconfig.spec.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": [
+        "eslint-plugin-unicorn",
+        "change-detection-strategy",
+        "rxjs"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier"
+      ],
+      "rules": {
+        "@angular-eslint/use-lifecycle-interface": "error",
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": ["app"],
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/array-type": "error",
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-shadow": [
+          "error",
+          {
+            "hoist": "all"
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "error",
+        "arrow-body-style": "error",
+        "change-detection-strategy/on-push": "error",
+        "curly": "error",
+        "eqeqeq": ["error", "always"],
+        "no-console": [
+          "error",
+          {
+            "allow": ["warn", "info", "error"]
+          }
+        ],
+        "no-debugger": "error",
+        "no-irregular-whitespace": "error",
+        "prefer-const": "error",
+        "prefer-object-spread": "error",
+        "unicorn/filename-case": "error",
+        "no-var": 2,
+        "rxjs/no-ignored-notifier": "error",
+        "rxjs/no-ignored-observable": "error",
+        "rxjs/no-subject-unsubscribe": "error",
+        "rxjs/no-ignored-subscription": "error",
+        "rxjs/no-ignored-replay-buffer": "error",
+        "rxjs/no-connectable": "error",
+        "rxjs/no-async-subscribe": "error"
+      }
+    },
+    {
+      "files": [
+        "*.spec.ts",
+        "before-each.ts",
+        "main.ts",
+        "*-stub-components.ts",
+        "**/test/*.ts"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": ["ngx"],
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/no-input-rename": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "change-detection-strategy/on-push": "off",
+        "no-restricted-globals": [
+          "error",
+          {
+            "name": "fdescribe",
+            "message": "Don't focus tests"
+          },
+          {
+            "name": "fit",
+            "message": "Don't focus tests"
+          }
+        ],
+        "rxjs/no-ignored-subscription": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    },
+    {
+      "files": ["*.service.ts", "*.effects.ts", "*.effect.ts"],
+      "rules": {
+        "rxjs/no-ignored-subscription": "off"
+      }
+    }
+  ]
+}
