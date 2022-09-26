@@ -1,0 +1,15 @@
+.add-course {
+  display: flex;
+  justify-content: flex-end;
+
+  &__button {
+    border: 1px solid var(--button-primary);
+    border-radius: 3px;
+    background: var(--button-primary);
+    height: 36px;
+    padding: 0 20px;
+    color: var(--white);
+    text-decoration: none;
+    line-height: 36px;
+  }
+}

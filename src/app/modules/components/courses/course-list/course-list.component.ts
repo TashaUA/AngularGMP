@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from "@core/models/course";
+import { CoursesData } from "@mock/courses";
 
 @Component({
   selector: 'app-course-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseListComponent implements OnInit {
 
-  constructor() { }
+  public courses: Course[] = CoursesData;
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log(this.courses);
   }
 
+  onLoadMore () {
+    console.log('load more button clicked');
+  }
+
+  onDelete(id: number) {
+    console.log('course id from child', id);
+  }
+
+  courseTrackBy(index: number, course: Course) {
+    return course.id;
+  }
 }

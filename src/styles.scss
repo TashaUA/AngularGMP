@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+/*reset*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --blue: #5681EE;
+  --gray-dark: #464A5A;
+  --button-primary: #009ecc;
+  --button-secondary: #67A300;
+  --bg-dark: #303240;
+}

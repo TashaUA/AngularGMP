@@ -1,0 +1,21 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  background: var(--bg-dark);
+  height: 60px;
+  width: 100%;
+  font-family: Arial;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 85px;
+  box-sizing: border-box;
+
+  &__copy {
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--white);
+    font-size: 12px;
+    text-transform: none;
+  }
+}
