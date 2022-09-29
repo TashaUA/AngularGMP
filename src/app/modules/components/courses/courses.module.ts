@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CourseItemComponent } from './course-item/course-item.component';
+import { AddCourseComponent } from './add-course/add-course.component';
 
 @NgModule({
   declarations: [
-    CourseItemComponent
+  ],
+  exports: [
   ],
   imports: [
     CommonModule

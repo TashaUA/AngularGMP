@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Course } from "@core/models/course";
 
 @Component({
   selector: 'app-course-item',
   templateUrl: './course-item.component.html',
   styleUrls: ['./course-item.component.scss']
 })
-export class CourseItemComponent implements OnInit {
+export class CourseItemComponent {
+  @Input() course!: Course;
+  @Output() onDeleteEvent = new EventEmitter<number>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onEdit () {
+    console.log('edit button clicked');
   }
 
+  onDelete () {
+    console.log('delete button clicked');
+    this.onDeleteEvent.emit(this.course.id);
+  }
 }

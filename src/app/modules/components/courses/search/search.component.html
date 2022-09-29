@@ -1,0 +1,6 @@
+<div class="search">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" >
+    <input type="text" id="search" formControlName="search" placeholder="Enter your text" class="search__input"/>
+    <input type="submit" value="Submit" class="search__button" />
+  </form>
+</div>

@@ -1,0 +1,29 @@
+.header {
+  background: var(--bg-dark);
+  height: 60px;
+  width: 100%;
+  font-family: Arial;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 85px;
+  box-sizing: border-box;
+
+  &__logo {
+    display: block;
+    margin: 8px 0 0;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 30px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--white);
+    font-size: 16px;
+
+    &-item-link {
+      color: var(--white);
+    }
+  }
+}
