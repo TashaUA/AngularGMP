@@ -1,6 +1,5 @@
 <div class="courses">
-  <app-course-item
-      *ngFor="let course of courses; index as i; trackBy: courseTrackBy"
+  <app-course-item *ngFor="let course of courses; index as i; trackBy: courseTrackBy"
       [course]="course"
       (onDeleteEvent)="onDelete($event)"
   ></app-course-item>
