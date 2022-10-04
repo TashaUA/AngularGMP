@@ -8,7 +8,7 @@ import { Course } from "@core/models/course";
 })
 export class CourseItemComponent {
   @Input() course!: Course;
-  @Output() onDeleteEvent = new EventEmitter<number>();
+  @Output() onDeleteEvent = new EventEmitter<Course>();
 
   onEdit () {
     console.log('edit button clicked');
@@ -16,6 +16,6 @@ export class CourseItemComponent {
 
   onDelete () {
     console.log('delete button clicked');
-    this.onDeleteEvent.emit(this.course.id);
+    this.onDeleteEvent.emit(this.course);
   }
 }

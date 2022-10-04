@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AddCourseComponent {
 
-  onAddCourse (event: { preventDefault: () => void; }) {
-    event.preventDefault();
+  onAddCourse () {
     console.log('Add new course button clicked');
   }
 }

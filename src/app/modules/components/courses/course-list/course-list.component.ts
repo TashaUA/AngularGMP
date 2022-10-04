@@ -19,8 +19,8 @@ export class CourseListComponent implements OnInit {
     console.log('load more button clicked');
   }
 
-  onDelete(id: number) {
-    console.log('course id from child', id);
+  onDelete(course: Course) {
+    console.log('course id from child', course.id);
   }
 
   courseTrackBy(index: number, course: Course) {

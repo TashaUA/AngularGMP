@@ -20,4 +20,10 @@ describe('BreadcrumbsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display breadcrumbs title', () => {
+    fixture.detectChanges();
+    let breadcrumbs = fixture.nativeElement.querySelector('.breadcrumbs');
+    expect(breadcrumbs.textContent).toContain('Courses');
+  });
 });
