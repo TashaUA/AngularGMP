@@ -1,12 +1,23 @@
 .courses {
   &__item {
+    $root: &;
     position: relative;
     font-family: Arial, sans-serif;
     border-radius: 6px;
+    border: 1px solid var(--gray-light);
     background: var(--white);
     box-shadow: 0 1px 2px 0 rgba(29,30,38,0.10), 0 2px 10px 0 rgba(29,30,38,0.15);
     padding: 25px;
     margin: 24px 0;
+
+    &--top-rated {
+      background-color: #fff4c2;
+
+      #{ $root }-title span {
+        color: orange;
+        font-size: 20px;
+      }
+    }
 
     &-title {
       color: #333333;

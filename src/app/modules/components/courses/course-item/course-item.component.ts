@@ -7,7 +7,7 @@ import { Course } from "@core/models/course";
   styleUrls: ['./course-item.component.scss']
 })
 export class CourseItemComponent {
-  @Input() course!: Course;
+  @Input() public course!: Course;
   @Output() onDeleteEvent = new EventEmitter<Course>();
 
   onEdit () {

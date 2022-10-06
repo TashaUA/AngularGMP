@@ -1,5 +1,9 @@
-<div class="courses__item">
-  <p class="courses__item-title">{{course.title}}</p>
+<div class="courses__item" [ngClass]="course.topRated ? 'courses__item--top-rated' : ''"
+     [appCourseType]="course.creationDate">
+  <p class="courses__item-title">
+    {{course.title | uppercase}}
+    <span *ngIf="course.topRated"><i class="fa fa-star"></i></span>
+  </p>
   <div class="courses__item-main">
     <p class="courses__item-description">{{course.description}}</p>
     <div class="courses__item-buttons">
@@ -8,7 +12,7 @@
     </div>
   </div>
   <div class="courses__item-info">
-    <p class="courses__item-info-date">{{course.creationDate}}</p>
-    <p class="courses__item-info-duration">{{course.duration}} min</p>
+    <p class="courses__item-info-date">{{course.creationDate | date:'mediumDate'}}</p>
+    <p class="courses__item-info-duration">{{course.duration | durationTime}}</p>
   </div>
 </div>

@@ -20,7 +20,8 @@
     "module": "es2020",
     "paths": {
       "@core/*": ["app/core/*"],
-      "@mock/*": ["app/mock/*"]
+      "@mock/*": ["app/mock/*"],
+      "@shared/*": ["app/shared/*"]
     },
     "lib": [
       "es2020",

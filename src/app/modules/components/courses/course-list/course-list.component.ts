@@ -10,6 +10,7 @@ import { CoursesData } from "@mock/courses";
 export class CourseListComponent implements OnInit {
 
   public courses: Course[] = CoursesData;
+  public searchQuery: string = '';
 
   ngOnInit() {
     console.log(this.courses);
@@ -25,5 +26,10 @@ export class CourseListComponent implements OnInit {
 
   courseTrackBy(index: number, course: Course) {
     return course.id;
+  }
+
+  onSearched(query: string ) {
+    this.searchQuery = query;
+    console.log('searchQuery', this.searchQuery)
   }
 }

@@ -1,9 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { CourseListComponent } from './course-list.component';
 import { CourseItemComponent } from '../course-item/course-item.component';
 import {DebugElement} from "@angular/core";
-import {AppComponent} from "../../../../app.component";
+import {SearchComponent} from "../search/search.component";
+import {AddCourseComponent} from "../add-course/add-course.component";
+import {OrderByDatePipe} from "@shared/pipes/sort/order-by.pipe";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FilterPipe} from "@shared/pipes/filter/filter.pipe";
+import {DurationTimePipe} from "@shared/pipes/time/duration-time.pipe";
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -12,7 +16,11 @@ describe('CourseListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CourseListComponent, CourseItemComponent ]
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
+      ],
+      declarations: [ CourseListComponent, CourseItemComponent, SearchComponent, AddCourseComponent, OrderByDatePipe, FilterPipe, DurationTimePipe ]
     })
     .compileComponents();
 
