@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
+  @Output() queryAdded = new EventEmitter<string>();
+  queryString: string = '';
 
   searchForm = this.formBuilder.group({
     search: '',
@@ -14,8 +16,9 @@ export class SearchComponent {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  onSearch(): void {
+  onSearch() {
     console.warn('Input data :', this.searchForm.value.search);
+    this.queryAdded.emit(this.queryString);
   }
 
 }

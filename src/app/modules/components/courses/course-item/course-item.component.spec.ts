@@ -4,6 +4,7 @@ import { CourseItemComponent } from './course-item.component';
 import { Course } from "@core/models/course";
 import { first } from 'rxjs/operators';
 import {DebugElement} from "@angular/core";
+import {DurationTimePipe} from "@shared/pipes/time/duration-time.pipe";
 
 describe('CourseItemComponent', () => {
   let component: CourseItemComponent;
@@ -13,7 +14,7 @@ describe('CourseItemComponent', () => {
 
     beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CourseItemComponent ]
+      declarations: [ CourseItemComponent, DurationTimePipe ]
     })
     .compileComponents();
 
@@ -23,7 +24,7 @@ describe('CourseItemComponent', () => {
     DE = fixture.debugElement;
     EL = DE.nativeElement;
 
-    expectedCourse = {id: 42, title: 'Test Name', description: 'rrr'};
+    expectedCourse = {id: 42, title: 'TEST NAME', description: 'rrr'};
     component.course = expectedCourse;
 
     fixture.detectChanges();
