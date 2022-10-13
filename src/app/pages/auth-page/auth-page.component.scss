@@ -1,0 +1,70 @@
+.modal {
+  border-radius: 6px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px 0 rgba(29,30,38,0.10), 0 2px 10px 0 rgba(29,30,38,0.15);
+  height: 311px;
+  width: 368px;
+  margin: 0 auto;
+  padding: 25px;
+
+  &__title {
+    color: #333333;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 600;
+    margin: 0 0 40px;
+  }
+
+  .login {
+    &__field {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 5px 0;
+
+      label, &-required {
+        width: 50%;
+        flex-basis: 50%;
+        line-height: 20px;
+      }
+      &-input {
+        width: 100%;
+        flex-basis: 100%;
+        border: 1px solid var(--gray-light);
+        border-radius: 6px;
+        background: #FFFFFF;
+        box-shadow: 0 1px 2px 0 rgba(29,30,38,0.10), 0 2px 10px 0 rgba(29,30,38,0.15);
+        line-height: 40px;
+      }
+
+      &-required {
+        font-size: 12px;
+        text-align: right;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__button {
+      border: 1px solid var(--green);
+      color: var(--white);
+      border-radius: 3px;
+      background: var(--green);
+      height: 36px;
+      width: 79px;
+    }
+
+    &__forgot {
+      line-height: 30px;
+      letter-spacing: 0;
+      color: #5681EE;
+      font-size: 12px;
+      text-transform: none;
+      text-align: left;
+      text-decoration: single;
+      height: 30px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from "@core/models/course";
-import { CoursesData } from "@mock/courses";
+import { CoursesService } from '@core/services/courses.service';
 
 @Component({
   selector: 'app-course-list',
@@ -9,10 +9,17 @@ import { CoursesData } from "@mock/courses";
 })
 export class CourseListComponent implements OnInit {
 
-  public courses: Course[] = CoursesData;
+  public courses: Course[] = [];
   public searchQuery: string = '';
 
+  constructor(private coursesService: CoursesService) {}
+
+  getCourses(): void {
+    this.courses = this.coursesService.getCourses();
+  }
+
   ngOnInit() {
+    this.getCourses();
     console.log(this.courses);
   }
 
@@ -22,6 +29,13 @@ export class CourseListComponent implements OnInit {
 
   onDelete(course: Course) {
     console.log('course id from child', course.id);
+    let text = "Do you really want to delete this course?";
+    if (confirm(text)) {
+      console.log('chosen course was deleted');
+      this.coursesService.deleteCourse(course.id);
+    } else {
+      console.log('chosen course was not deleted');
+    }
   }
 
   courseTrackBy(index: number, course: Course) {
