@@ -8,6 +8,7 @@ import {LogoComponent} from "@shared/components/header/logo/logo.component";
 import {FooterComponent} from "@shared/components/footer/footer.component";
 import {HeaderComponent} from "@shared/components/header/header.component";
 import {BreadcrumbsComponent} from "@shared/components/breadcrumbs/breadcrumbs.component";
+import { IsAuthenticatedDirective } from '@shared/directives/auth/is-authenticated.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {BreadcrumbsComponent} from "@shared/components/breadcrumbs/breadcrumbs.c
     DurationTimePipe,
     OrderByDatePipe,
     FilterPipe,
+    IsAuthenticatedDirective,
   ],
   imports: [
     CommonModule
