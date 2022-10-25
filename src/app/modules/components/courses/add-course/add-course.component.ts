@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CoursesService} from "@core/services/courses.service";
-import { Course } from "@core/models/course";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {AddEditFormComponent} from "../add-edit-form/add-edit-form.component";
 
 @Component({
   selector: 'app-add-course',
   templateUrl: './add-course.component.html',
-  styleUrls: ['./add-course.component.scss']
+  styleUrls: ['./add-course.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddCourseComponent {
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(private coursesService: CoursesService, public matDialog: MatDialog) {}
 
   onAddCourse(): void {
-    const newCourse: Course  = { id: 5, title: 'Newly added course', creationDate: '22/05/2022' };
-    this.coursesService.addCourse(newCourse);
+    this.openAddNewCourseModal();
+  }
+
+  openAddNewCourseModal() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "modal-auth-component";
+    dialogConfig.height = "500px";
+    dialogConfig.width = "800px";
+    this.matDialog.open(AddEditFormComponent, dialogConfig);
   }
 }
