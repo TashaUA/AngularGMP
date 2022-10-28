@@ -9,6 +9,8 @@ import {FooterComponent} from "@shared/components/footer/footer.component";
 import {HeaderComponent} from "@shared/components/header/header.component";
 import {BreadcrumbsComponent} from "@shared/components/breadcrumbs/breadcrumbs.component";
 import { IsAuthenticatedDirective } from '@shared/directives/auth/is-authenticated.directive';
+import { ModalComponent } from '@shared/components/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { IsAuthenticatedDirective } from '@shared/directives/auth/is-authenticat
     OrderByDatePipe,
     FilterPipe,
     IsAuthenticatedDirective,
+    ModalComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatDialogModule,
   ],
   exports: [
     HeaderComponent,
@@ -34,6 +38,7 @@ import { IsAuthenticatedDirective } from '@shared/directives/auth/is-authenticat
     DurationTimePipe,
     OrderByDatePipe,
     FilterPipe,
+    ModalComponent,
   ]
 })
 export class SharedModule { }

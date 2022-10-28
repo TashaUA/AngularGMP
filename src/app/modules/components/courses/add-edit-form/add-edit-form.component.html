@@ -1,0 +1,37 @@
+<div class="modal modal--{{isEdit ? 'edit' : 'add'}}-course">
+  <p class="modal__title">{{isEdit ? 'Edit Course' : 'New Course'}}</p>
+  <div class="course">
+    <form [formGroup]="addEditForm" >
+      <p class="course__field">
+        <label for="title">Title</label>
+        <span class="course__field-required">* required</span>
+        <input class="course__field-input" formControlName="title" id="title" type="text" [(ngModel)]="course.title"/>
+      </p>
+      <p class="course__field">
+        <label for="description">Description</label>
+        <span class="course__field-required">* required</span>
+        <textarea class="course__field-input" formControlName="description" id="description" placeholder="description" type="text" [(ngModel)]="course.description"></textarea>
+      </p>
+      <p class="course__field">
+        <label for="title">Duration</label>
+        <span class="course__field-required">* required</span>
+        <input class="course__field-input" id="duration" formControlName="duration" type="text"  [(ngModel)]="course.duration"/>
+        <span>{{course.duration | durationTime}}</span>
+      </p>
+      <p class="course__field">
+        <label for="title">Date</label>
+        <span class="course__field-required">* required</span>
+        <input class="course__field-input" id="creationTime" formControlName="creationDate" type="text" [(ngModel)]="course.creationDate"/>
+      </p>
+      <p class="course__field">
+        <label for="title">Authors</label>
+        <span class="course__field-required">* required</span>
+        <input class="course__field-input" id="authors" type="text" value=""/>
+      </p>
+      <p class="course__buttons">
+        <button class="course__button course__button--cancel">Cancel</button>
+        <button class="course__button" (click)="isEdit ? editCourse() : addCourse()">Save</button>
+      </p>
+    </form>
+  </div>
+</div>
