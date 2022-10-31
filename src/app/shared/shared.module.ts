@@ -11,6 +11,7 @@ import {BreadcrumbsComponent} from "@shared/components/breadcrumbs/breadcrumbs.c
 import { IsAuthenticatedDirective } from '@shared/directives/auth/is-authenticated.directive';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     CommonModule,
     MatDialogModule,
+    RouterModule,
   ],
   exports: [
     HeaderComponent,

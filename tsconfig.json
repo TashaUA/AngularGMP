@@ -21,7 +21,8 @@
     "paths": {
       "@core/*": ["app/core/*"],
       "@mock/*": ["app/mock/*"],
-      "@shared/*": ["app/shared/*"]
+      "@shared/*": ["app/shared/*"],
+      "@pages/*": ["app/pages/*"]
     },
     "lib": [
       "es2020",
