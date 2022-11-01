@@ -11,11 +11,11 @@ export class CoursesService {
     return CoursesData;
   }
 
-  addCourse(newCourse: Course) {
+  addCourse(newCourse: Course | null) {
     console.log('new course was added', newCourse);
   }
 
-  updateCourse(id: number, newCourseData: Course) {
+  updateCourse(id: number, newCourseData: Course | null) {
     console.log('update course', newCourseData);
   }
 
@@ -24,6 +24,6 @@ export class CoursesService {
   }
 
   getCourseById(id: number) {
-    return CoursesData.filter(item => item.id === id);
+    return CoursesData.find(item => item.id === id);
   }
 }

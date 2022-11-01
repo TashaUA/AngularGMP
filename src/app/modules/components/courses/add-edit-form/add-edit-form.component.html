@@ -29,7 +29,7 @@
         <input class="course__field-input" id="authors" type="text" value=""/>
       </p>
       <p class="course__buttons">
-        <button class="course__button course__button--cancel">Cancel</button>
+        <button class="course__button course__button--cancel" (click)="redirectToCourses()">Cancel</button>
         <button class="course__button" (click)="isEdit ? editCourse() : addCourse()">Save</button>
       </p>
     </form>
