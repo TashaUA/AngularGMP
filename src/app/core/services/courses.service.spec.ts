@@ -18,6 +18,6 @@ describe('CoursesService', () => {
   it("should create a course in an array", () => {
     const course: Course = {id: 1, title: 'www'};
     service.addCourse(course);
-    expect(service.getCourses().length).toBeGreaterThanOrEqual(1);
+    expect(service.getCourses().subscribe(courses => courses.length).toBeGreaterThanOrEqual(1);
   });
 });

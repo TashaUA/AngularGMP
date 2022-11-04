@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { Course } from "@core/models/course";
 import { CoursesService } from '@core/services/courses.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
@@ -10,22 +11,25 @@ import { CoursesService } from '@core/services/courses.service';
 })
 export class CourseListComponent implements OnInit {
 
-  public courses: Course[] = [];
+  public courses$: Observable<Course[]>;
+  public perPage: number = 5;
+  public count: number = 5;
   public searchQuery: string = '';
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(private coursesService: CoursesService, private cd: ChangeDetectorRef) {}
 
   getCourses(): void {
-    this.courses = this.coursesService.getCourses();
+    this.courses$ = this.coursesService.getCourses(this.searchQuery);
   }
 
   ngOnInit() {
     this.getCourses();
-    console.log(this.courses);
   }
 
   onLoadMore () {
     console.log('load more button clicked');
+    this.courses$ = this.coursesService.getCourses(this.searchQuery, this.count);
+    this.count += this.perPage;
   }
 
   onDelete(course: Course) {
@@ -33,7 +37,7 @@ export class CourseListComponent implements OnInit {
     let text = "Do you really want to delete this course?";
     if (confirm(text)) {
       console.log('chosen course was deleted');
-      this.coursesService.deleteCourse(course.id);
+      this.coursesService.deleteCourse(course.id).subscribe();
     } else {
       console.log('chosen course was not deleted');
     }
@@ -45,6 +49,7 @@ export class CourseListComponent implements OnInit {
 
   onSearched(query: string ) {
     this.searchQuery = query;
-    console.log('searchQuery', this.searchQuery)
+    this.coursesService.getCourses(this.searchQuery).subscribe();
+    this.getCourses();
   }
 }

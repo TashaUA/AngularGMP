@@ -2,8 +2,12 @@
 <app-logo class="header__logo"></app-logo>
   <nav class="header__nav-wrapper">
     <ul class="header__nav">
-      <li class="header__nav-item" router-link="/login"><a href="" class="header__nav-item-link">User Login</a></li>
+      <li class="header__nav-item" router-link="/login" *ngIf="!userName; else user"><a href="" class="header__nav-item-link">Login</a></li>
       <li class="header__nav-item" (click)="logout($event)"><a href="" class="header__nav-item-link">Logout</a></li>
     </ul>
   </nav>
 </header>
+
+<ng-template #user>
+  <li class="header__nav-item">{{userName}}</li>
+</ng-template>

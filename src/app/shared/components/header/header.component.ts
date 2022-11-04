@@ -1,7 +1,6 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AuthService} from "@core/services/auth.service";
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AuthPageComponent } from "../../../pages/auth-page/auth-page.component";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +8,24 @@ import { AuthPageComponent } from "../../../pages/auth-page/auth-page.component"
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
-  constructor(private authService: AuthService, public matDialog: MatDialog) {}
+  public user: any = null;
+  public userName: string = '';
+  constructor(private authService: AuthService,
+              public matDialog: MatDialog,
+              private cd: ChangeDetectorRef) {}
+
+  ngOnInit() {
+    this.getUserInfo();
+  }
+
+  getUserInfo() {
+   this.authService.getUserInfo().subscribe(userData => {
+     this.user = userData;
+     this.userName = this.user.name.first;
+     this.cd.markForCheck();});
+  }
 
   logout(e: any) {
     e.preventDefault();
