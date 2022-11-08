@@ -1,27 +1,26 @@
 <div class="modal modal--{{isEdit ? 'edit' : 'add'}}-course">
   <p class="modal__title">{{isEdit ? 'Edit Course' : 'New Course'}}</p>
   <div class="course">
-    <form [formGroup]="addEditForm" >
+    <form [formGroup]="addEditForm" *ngIf="(course | async) || !isEdit" >
       <p class="course__field">
         <label for="title">Title</label>
         <span class="course__field-required">* required</span>
-        <input class="course__field-input" formControlName="title" id="title" type="text" [(ngModel)]="course.title"/>
+        <input class="course__field-input" formControlName="title" id="title" type="text"/>
       </p>
       <p class="course__field">
         <label for="description">Description</label>
         <span class="course__field-required">* required</span>
-        <textarea class="course__field-input" formControlName="description" id="description" placeholder="description" type="text" [(ngModel)]="course.description"></textarea>
+        <textarea class="course__field-input" formControlName="description" id="description" placeholder="description" type="text" ></textarea>
       </p>
       <p class="course__field">
         <label for="title">Duration</label>
         <span class="course__field-required">* required</span>
-        <input class="course__field-input" id="duration" formControlName="duration" type="text"  [(ngModel)]="course.duration"/>
-        <span>{{course.duration | durationTime}}</span>
+        <input class="course__field-input" id="duration" formControlName="duration" type="text"/>
       </p>
       <p class="course__field">
         <label for="title">Date</label>
         <span class="course__field-required">* required</span>
-        <input class="course__field-input" id="creationTime" formControlName="creationDate" type="text" [(ngModel)]="course.creationDate"/>
+        <input class="course__field-input" id="creationTime" formControlName="creationDate" type="text"/>
       </p>
       <p class="course__field">
         <label for="title">Authors</label>
@@ -35,3 +34,7 @@
     </form>
   </div>
 </div>
+
+<ng-template #loading>
+  Loading Course...
+</ng-template>

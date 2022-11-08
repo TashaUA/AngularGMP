@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,9 +42,9 @@ import {AuthComponent} from "./modules/components/auth/auth.component";
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    CoursesModule,
     CommonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

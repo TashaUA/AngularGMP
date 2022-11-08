@@ -1,20 +1,21 @@
-
 <div class="modal modal--login">
   <p class="modal__title">Login</p>
 <div class="login">
+  <form [formGroup]="loginForm" >
   <p class="login__field">
     <label for="login">Email</label>
     <span class="login__field-required">* required</span>
-    <input class="login__field-input" id="login" type="text"/>
+    <input class="login__field-input" formControlName="login" id="login" type="text"/>
   </p>
   <p class="login__field">
     <label for="password">Password</label>
     <span class="login__field-required">* required</span>
-    <input class="login__field-input" id="password" type="password"/>
+    <input class="login__field-input" formControlName="password" id="password" type="password"/>
   </p>
   <p class="login__buttons">
     <a href="#" class="login__forgot">Forgot password?</a>
     <button class="login__button" (click)="login($event)">Login</button>
   </p>
+  </form>
 </div>
 </div>

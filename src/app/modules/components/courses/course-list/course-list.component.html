@@ -1,11 +1,11 @@
 <app-search (queryAdded)="onSearched($event)"></app-search>
 <app-add-course></app-add-course>
-<div class="courses--empty" *ngIf="!courses.length">No data</div>
-<div class="courses" *ngIf="courses.length">
-  <app-course-item *ngFor="let course of courses | filter:searchQuery | orderByDate; index as i; trackBy: courseTrackBy"
+<div class="courses">
+  <app-course-item *ngFor="let course of courses$ | async ; index as i; trackBy: courseTrackBy"
       [course]="course"
       (onDeleteEvent)="onDelete($event)"
   ></app-course-item>
   <div class="courses__load-more"><button href="#" (click)="onLoadMore()" class="courses__load-more--button">Load More</button></div>
 </div>
+<div class="courses--empty" *ngIf="!courses$">No data</div>
 <router-outlet></router-outlet>

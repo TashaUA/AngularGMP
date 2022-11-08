@@ -17,7 +17,6 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     component: CoursesPageComponent,
     children: [
-      { path: '', component: CoursesPageComponent },
       { path: 'new', component: AddEditPageComponent, data: { breadcrumb: 'New'} },
       { path: 'edit/:id', component: AddEditPageComponent, data: { breadcrumb: 'Edit'} }
     ]
@@ -35,7 +34,7 @@ export const routes: Routes = [
   imports: [
     //AuthModule,
     RouterModule.forRoot(routes, {
-      enableTracing: true,
+      //enableTracing: true,
       // useHash: true
       // preloadingStrategy: PreloadAllModules
     }),
